@@ -1,7 +1,5 @@
 package com.nick.jvm.jvmruntimedata;
 
-import java.awt.*;
-
 /**
  * Created by KangShuai on 2017/7/18.
  */

@@ -1,6 +1,6 @@
 package com.nick.jvm.jvmaninstructionandexplain.control;
 
-import com.nick.jvm.jvmaninstructionandexplain.BranchInstruction;
+import com.nick.jvm.jvmaninstructionandexplain.instruction.BranchInstruction;
 import com.nick.jvm.jvmaninstructionandexplain.BranchLogic;
 import com.nick.jvm.jvmruntimedata.JvmFrame;
 

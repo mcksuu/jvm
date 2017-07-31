@@ -1,6 +1,6 @@
 package com.nick.jvm.jvmaninstructionandexplain.conversions;
 
-import com.nick.jvm.jvmaninstructionandexplain.NoOperandsInstruction;
+import com.nick.jvm.jvmaninstructionandexplain.instruction.NoOperandsInstruction;
 import com.nick.jvm.jvmruntimedata.JvmFrame;
 
 /**
@@ -23,7 +23,7 @@ public class I2x {
         }
     }
 
-    public static class D2L extends NoOperandsInstruction {
+    public static class I2L extends NoOperandsInstruction {
         @Override
         public void execute(JvmFrame jvmFrame) {
             long value = (long) jvmFrame.jvmOperandStack.popInt();

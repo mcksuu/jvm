@@ -10,13 +10,13 @@ public class JvmFrame {
     public JvmThread jvmThread;
     public int nextPc;
 
-    public JvmFrame(JvmThread jvmThread,int maxLocals,int maxStack) {
+    public JvmFrame(JvmThread jvmThread, int maxLocals, int maxStack) {
         this.jvmThread = jvmThread;
         jvmLocalVars = new JvmLocalVars(maxLocals);
         jvmOperandStack = new JvmOperandStack(maxStack);
     }
 
     public void setNextPc(int nextPc) {
-
+        this.nextPc = nextPc;
     }
 }

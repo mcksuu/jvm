@@ -1,9 +1,8 @@
 package com.nick.jvm.jvmaninstructionandexplain.control;
 
-import com.nick.jvm.jvmaninstructionandexplain.BaseInstruction;
-import com.nick.jvm.jvmaninstructionandexplain.BranchInstruction;
+import com.nick.jvm.jvmaninstructionandexplain.instruction.BaseInstruction;
 import com.nick.jvm.jvmaninstructionandexplain.BranchLogic;
-import com.nick.jvm.jvmaninstructionandexplain.JvmBytecodeReader;
+import com.nick.jvm.jvmaninstructionandexplain.instruction.JvmBytecodeReader;
 import com.nick.jvm.jvmruntimedata.JvmFrame;
 import com.nick.jvm.model.type.U4;
 

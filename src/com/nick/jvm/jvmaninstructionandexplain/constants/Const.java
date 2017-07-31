@@ -1,6 +1,6 @@
 package com.nick.jvm.jvmaninstructionandexplain.constants;
 
-import com.nick.jvm.jvmaninstructionandexplain.NoOperandsInstruction;
+import com.nick.jvm.jvmaninstructionandexplain.instruction.NoOperandsInstruction;
 import com.nick.jvm.jvmruntimedata.JvmFrame;
 
 /**

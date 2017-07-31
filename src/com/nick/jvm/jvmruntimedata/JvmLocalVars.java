@@ -60,4 +60,13 @@ public class JvmLocalVars {
     public JvmObject getRef(int index) {
         return jvmSlots[index].ref;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (JvmSlot jvmSlot : jvmSlots) {
+            stringBuilder.append(jvmSlot.toString() + " ");
+        }
+        return stringBuilder.toString();
+    }
 }

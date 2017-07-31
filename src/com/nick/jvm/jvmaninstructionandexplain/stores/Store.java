@@ -1,17 +1,45 @@
 package com.nick.jvm.jvmaninstructionandexplain.stores;
 
-import com.nick.jvm.jvmaninstructionandexplain.Index8Instruction;
-import com.nick.jvm.jvmaninstructionandexplain.NoOperandsInstruction;
+import com.nick.jvm.jvmaninstructionandexplain.instruction.Index8Instruction;
+import com.nick.jvm.jvmaninstructionandexplain.instruction.NoOperandsInstruction;
 import com.nick.jvm.jvmruntimedata.JvmFrame;
 
 /**
  * Created by KangShuai on 2017/7/21.
  */
 public class Store {
-    public static class aSTORE extends Index8Instruction {
+    public static class ASTORE extends Index8Instruction {
         @Override
         public void execute(JvmFrame jvmFrame) {
             aStore(jvmFrame, index);
+        }
+    }
+
+    public static class ASTORE_0 extends Index8Instruction {
+        @Override
+        public void execute(JvmFrame jvmFrame) {
+            aStore(jvmFrame, 0);
+        }
+    }
+
+    public static class ASTORE_1 extends Index8Instruction {
+        @Override
+        public void execute(JvmFrame jvmFrame) {
+            aStore(jvmFrame, 1);
+        }
+    }
+
+    public static class ASTORE_2 extends Index8Instruction {
+        @Override
+        public void execute(JvmFrame jvmFrame) {
+            aStore(jvmFrame, 2);
+        }
+    }
+
+    public static class ASTORE_3 extends Index8Instruction {
+        @Override
+        public void execute(JvmFrame jvmFrame) {
+            aStore(jvmFrame, 3);
         }
     }
 

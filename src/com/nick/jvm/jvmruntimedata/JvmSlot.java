@@ -8,4 +8,11 @@ import com.nick.jvm.jvmobj.JvmObject;
 public class JvmSlot {
     public int value;
     public JvmObject ref;
+
+    @Override
+    public String toString() {
+        String result = "";
+        result += "value = " + value;
+        return result;
+    }
 }

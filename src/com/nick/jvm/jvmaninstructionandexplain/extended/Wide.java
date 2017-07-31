@@ -1,7 +1,7 @@
 package com.nick.jvm.jvmaninstructionandexplain.extended;
 
-import com.nick.jvm.jvmaninstructionandexplain.BaseInstruction;
-import com.nick.jvm.jvmaninstructionandexplain.JvmInstruction;
+import com.nick.jvm.jvmaninstructionandexplain.instruction.BaseInstruction;
+import com.nick.jvm.jvmaninstructionandexplain.instruction.JvmInstruction;
 
 /**
  * Created by KangShuai on 2017/7/21.

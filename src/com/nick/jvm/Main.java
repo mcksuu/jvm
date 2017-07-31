@@ -2,10 +2,14 @@ package com.nick.jvm;
 
 import com.nick.jvm.cmd.Cmd;
 import com.nick.jvm.entry.ClassPath;
+import com.nick.jvm.jvmaninstructionandexplain.Interpreter;
 import com.nick.jvm.jvmobj.JvmObject;
 import com.nick.jvm.jvmruntimedata.JvmFrame;
 import com.nick.jvm.jvmruntimedata.JvmLocalVars;
 import com.nick.jvm.jvmruntimedata.JvmOperandStack;
+import com.nick.jvm.model.classfile.ClassFile;
+import com.nick.jvm.model.cpinfo.ConstantUtf8Info;
+import com.nick.jvm.model.methodinfo.MethodInfo;
 
 /**
  * Created by KangShuai on 2017/7/14.
@@ -13,16 +17,6 @@ import com.nick.jvm.jvmruntimedata.JvmOperandStack;
 public class Main {
 
     public static void main(String[] args) {
-
-//        long a = 299792458011212L;
-//        int b = (int) (a >> 32);
-//        int c = (int) a;
-//
-//        System.out.println("a = " + Long.toBinaryString(a) + "\n" + "b = " + b + " " + Integer.toBinaryString(b) + "\n" + " c = " + c + " " + Integer.toBinaryString(c));
-//        long d = (b & 0x000000ffffffffL) << 32;
-//        long f = c & 0x00000000ffffffffL;
-//        System.out.println(d | f);
-
         Cmd cmd = Cmd.parseCmd(args);
         if (cmd.helpFlag) {
             println("Usage: %s [-options] class [args...]", "Main");
@@ -42,16 +36,27 @@ public class Main {
             println("classpath:%s class:%s args:%s", cmd.clazzPath, cmd.clazz, argsStr);
         }
 
-        if (cmd.xjreFlag) {
-            ClassPath classPath = new ClassPath();
-            classPath.readUserClasspath(cmd);
-            PrintClass.printClass(cmd);
-//            classPath.readBootAndExtClasspath(cmd);
+//        if (cmd.xjreFlag) {
+        ClassPath classPath = new ClassPath();
+        classPath.readUserClasspath(cmd);
+        ClassFile classFile = PrintClass.printClass(cmd);
+        if (classFile != null) {
+            MethodInfo[] methodInfos = classFile.methodInfos;
+            for (MethodInfo methodInfo : methodInfos) {
+                if (classFile.cpInfo[methodInfo.nameIndex.getValue()] instanceof ConstantUtf8Info) {
+                    String bytesValue = ((ConstantUtf8Info) classFile.cpInfo[methodInfo.nameIndex.getValue() - 1]).bytesValue;
+                    if (bytesValue.equals("main")) {
+                        Interpreter.interpret(methodInfo);
+                    }
+                }
+            }
         }
+//            classPath.readBootAndExtClasspath(cmd);
+//        }
 
-        JvmFrame jvmFrame = new JvmFrame(10, 10);
-        testLocalVars(jvmFrame.jvmLocalVars);
-        testOperandStack(jvmFrame.jvmOperandStack);
+//        JvmFrame jvmFrame = new JvmFrame(10, 10);
+//        testLocalVars(jvmFrame.jvmLocalVars);
+//        testOperandStack(jvmFrame.jvmOperandStack);
 
     }
 

@@ -19,18 +19,20 @@ import java.io.InputStream;
 
 public class PrintClass {
 
-    public static void printClass(Cmd cmd) {
+    public static ClassFile printClass(Cmd cmd) {
         try {
             InputStream inputStream = new FileInputStream(cmd.clazzPath + "\\" + cmd.clazz);
-            createClassFile(inputStream);
+           return createClassFile(inputStream);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return null;
     }
 
-    private static void createClassFile(InputStream inputStream) {
+    private static ClassFile createClassFile(InputStream inputStream) {
         ClassFile classFile = new ClassFile();
         classFile.magic = U4.read(inputStream);
         System.out.println("magic:" + classFile.magic.getHexValue());
@@ -132,6 +134,8 @@ public class PrintClass {
             System.out.println(classFile.attributes[j]);
 
         }
+
+        return classFile;
     }
 
 }

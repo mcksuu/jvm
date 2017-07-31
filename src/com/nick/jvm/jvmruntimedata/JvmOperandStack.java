@@ -82,4 +82,14 @@ public class JvmOperandStack {
         size--;
         return jvmSlots[size];
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (JvmSlot jvmSlot : jvmSlots) {
+            stringBuilder.append(jvmSlot.toString() + " ");
+        }
+        stringBuilder.append("size = " + size);
+        return stringBuilder.toString();
+    }
 }

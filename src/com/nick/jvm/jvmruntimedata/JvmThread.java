@@ -24,4 +24,8 @@ public class JvmThread {
     public void pushFrame(JvmFrame jvmFrame) {
         jvmStack.push(jvmFrame);
     }
+
+    public JvmFrame popFrame() {
+        return jvmStack.pop();
+    }
 }

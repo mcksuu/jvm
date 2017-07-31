@@ -1,7 +1,7 @@
 package com.nick.jvm.jvmaninstructionandexplain.math;
 
-import com.nick.jvm.jvmaninstructionandexplain.BaseInstruction;
-import com.nick.jvm.jvmaninstructionandexplain.JvmBytecodeReader;
+import com.nick.jvm.jvmaninstructionandexplain.instruction.BaseInstruction;
+import com.nick.jvm.jvmaninstructionandexplain.instruction.JvmBytecodeReader;
 import com.nick.jvm.jvmruntimedata.JvmFrame;
 
 /**
