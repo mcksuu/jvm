@@ -8,7 +8,7 @@ public class BaseicType<T> implements IBasicType<T> {
         String hexString = "";
 
         if (value instanceof Long) {
-            hexString = Long.toHexString((Long) value & 0xffff);
+            hexString = Long.toHexString((Long) value);
         } else if (value instanceof Short) {
             hexString = Integer.toHexString((Short) value & 0xffff);
         } else if (value instanceof Byte) {
