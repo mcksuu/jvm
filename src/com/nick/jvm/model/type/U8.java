@@ -11,11 +11,11 @@ public class U8 extends BaseicType<Long> {
     }
 
     public static U8 read(InputStream inputStream) {
-        byte[] bytes = new byte[4];
+        byte[] bytes = new byte[8];
         try {
             inputStream.read(bytes);
             long value = 0;
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 8; i++) {
                 value <<= 8;
                 value |= bytes[i] & 0xFF;
             }
